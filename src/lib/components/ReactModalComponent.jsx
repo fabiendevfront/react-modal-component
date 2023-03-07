@@ -1,3 +1,5 @@
+import "../styles/main.scss";
+
 const ReactModalComponent = () => {
     return (
         <div className="react-modal-component">

@@ -1,9 +1,13 @@
-const App = () => {
-  return (
-    <div className="App">
+import ReactModalComponent from "./lib/components/ReactModalComponent";
 
-    </div>
-  );
+const App = () => {
+	return (
+		<div className="App">
+			<ReactModalComponent>
+
+			</ReactModalComponent>
+		</div>
+	);
 }
 
 export default App;
