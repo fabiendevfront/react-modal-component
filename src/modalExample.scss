@@ -6,9 +6,13 @@ $secondary-color: #748813;
 $white: #ffffff;
 $font-default: 'Source Sans Pro', sans-serif;
 
+body {
+    margin: 0;
+}
+
 .modal-example {
     font-family: $font-default;
-    padding: 100px 10%;
+    padding: 100px 0;
 
     &__head {
         display: flex;

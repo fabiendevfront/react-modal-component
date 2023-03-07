@@ -4,3 +4,59 @@
 /********************************/
 /* REACT-MODAL-COMPONENT STYLE */
 /*******************************/
+
+.react-modal-component {
+
+    &__overlay {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__container {
+        position: relative;
+        padding: 48px 52px;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+        min-width: 400px;
+
+        &--medium {
+            min-width: 300px;
+        }
+
+        &--small {
+            min-width: initial;
+        }
+    }
+
+    &__title {
+        font-size: 38px;
+        margin: 20px 0 0 0;
+    }
+
+    &__btn {
+        background-color: rgba(187, 187, 187, 0.644);
+        margin: 0;
+        line-height: 1.2;
+        text-align: center;
+        border-radius: 50%;
+        font-size: 24px;
+        font-weight: 700;
+        cursor: pointer;
+        position: absolute;
+        top: 16px;
+        right: 12px;
+        border: none;
+        width: 30px;
+        height: 30px;
+    }
+}
