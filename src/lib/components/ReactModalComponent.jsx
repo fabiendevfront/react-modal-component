@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "../styles/main.scss";
+import PropTypes from 'prop-types';
 
 const ReactModalComponent = (props) => {
 
@@ -40,8 +41,7 @@ const ReactModalComponent = (props) => {
                         props.modalSize === "large" ? "react-modal-component__container--large"
                         : props.modalSize === "medium" ? "react-modal-component__container--medium"
                         : props.modalSize === "small" ? "react-modal-component__container--small"
-                        : ""} ${props.darkMode ? "react-modal-component__container--dark" : ""} ${
-                        props.responsive ? "react-modal-component__container--responsive" : ""}`}
+                        : ""} ${props.darkMode ? "react-modal-component__container--dark" : ""}`}
                     style={modalStyle}
                     onClick={(e) => e.stopPropagation()}
                 >
@@ -65,6 +65,18 @@ const ReactModalComponent = (props) => {
             </div>
         </div>
     );
+};
+
+ReactModalComponent.propTypes = {
+    hideModal: PropTypes.func.isRequired,
+    title: PropTypes.string,
+    children: PropTypes.node.isRequired,
+    darkMode: PropTypes.bool,
+    modalSize: PropTypes.oneOf(["large", "medium", "small"]),
+    customModalWidth: PropTypes.string,
+    customModalHeight: PropTypes.string,
+    modalTextColor: PropTypes.string,
+    closeBtnContainerColor: PropTypes.string
 };
 
 export default ReactModalComponent;

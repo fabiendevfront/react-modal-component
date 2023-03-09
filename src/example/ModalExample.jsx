@@ -1,4 +1,4 @@
-import ReactModalComponent from "./lib/components/ReactModalComponent";
+import ReactModalComponent from "../lib/components/ReactModalComponent";
 import { useState } from "react";
 
 const ModalExample = () => {
@@ -23,11 +23,11 @@ const ModalExample = () => {
 						hideModal={toggleModal}
 						title="Modal Title"
 						// darkMode
-						// modalTextColor="#FFF258"
-						// closeBtnContainerColor="#93AD18"
 						// modalSize="large"
 						// customModalWidth="400px"
 						// customModalHeight="400px"
+						// modalTextColor="#FFF258"
+						// closeBtnContainerColor="#93AD18"
 					>
 						<p className="modal-example__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio expedita facilis laborum, doloremque voluptatum nostrum esse fuga a quia rerum deleniti veritatis rem quisquam corporis saepe iure eaque ex maxime?</p>
 						<a href="/" className="modal-example__link-btn">Link</a>

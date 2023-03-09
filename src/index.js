@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import ModalExample from './ModalExample';
-import "./modalExample.scss";
+import ModalExample from './example/ModalExample';
+import "./example/modalExample.scss";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
