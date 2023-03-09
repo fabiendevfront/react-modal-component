@@ -12,7 +12,7 @@
         height: 100vh;
         position: fixed;
         top: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(variables.$black, 0.5);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -21,42 +21,96 @@
     &__container {
         position: relative;
         padding: 48px 52px;
-        background-color: white;
+        background-color: variables.$white;
+        color: variables.$black;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
-        gap: 50px;
+        gap: 30px;
         align-items: center;
-        min-width: 400px;
+        margin: 0 5%;
+        max-width: 500px;
+
+        &--dark {
+            background-color: lighten(variables.$black, 13);
+            color: variables.$white;
+
+            .react-modal-component__close-btn {
+                background-color: variables.$white;
+
+                &:hover {
+                    background-color: darken(variables.$white, 33)
+                }
+
+                &::before,
+                &::after {
+                    background-color: variables.$black;
+                }
+            }
+        }
+
+        &--large {
+            width: 600px;
+            min-width: 500px;
+        }
 
         &--medium {
+            width: 400px;
             min-width: 300px;
         }
 
         &--small {
-            min-width: initial;
+            width: 300px;
+            min-width: 200px;
+        }
+    }
+
+    &__close-btn {
+        position: absolute;
+        top: 5px;
+        right: 0;
+        margin: 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: variables.$black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color .3s ease-in-out;
+
+        &:hover {
+            background-color: lighten(variables.$black, 50);
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background-color: variables.$white;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            transform: rotate(-45deg);
         }
     }
 
     &__title {
-        font-size: 38px;
-        margin: 20px 0 0 0;
+        @include mixins.font-size(38px);
+        margin: 15px 0 0 0;
     }
 
-    &__btn {
-        background-color: rgba(187, 187, 187, 0.644);
-        margin: 0;
-        line-height: 1.2;
-        text-align: center;
-        border-radius: 50%;
-        font-size: 24px;
-        font-weight: 700;
-        cursor: pointer;
-        position: absolute;
-        top: 16px;
-        right: 12px;
-        border: none;
-        width: 30px;
-        height: 30px;
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 }

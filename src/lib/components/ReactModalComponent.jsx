@@ -1,17 +1,66 @@
+import { useEffect } from "react";
 import "../styles/main.scss";
 
-const ReactModalComponent = ({ displayModal, title, children }) => {
+const ReactModalComponent = (props) => {
+
+    const modalStyle = {
+        width: props.customModalWidth || "",
+        height: props.customModalHeight || "",
+        color: props.modalTextColor || ""
+    }
+
+    const btnModalStyle = {
+        backgroundColor: props.closeBtnContainerColor || ""
+    }
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                props.hideModal();
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [props]);
+
     return (
-        <div className="react-modal-component">
-            <div className="react-modal-component__overlay">
-                <div className="react-modal-component__container">
+        <div
+            className="react-modal-component"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            aria-describedby="modal-description"
+        >
+            <div className="react-modal-component__overlay" onClick={props.hideModal}>
+                <div
+                    className={`react-modal-component__container ${
+                        props.modalSize === "large" ? "react-modal-component__container--large"
+                        : props.modalSize === "medium" ? "react-modal-component__container--medium"
+                        : props.modalSize === "small" ? "react-modal-component__container--small"
+                        : ""} ${props.darkMode ? "react-modal-component__container--dark" : ""} ${
+                        props.responsive ? "react-modal-component__container--responsive" : ""}`}
+                    style={modalStyle}
+                    onClick={(e) => e.stopPropagation()}
+                >
                     <div className="react-modal-component__head">
-                        <h3 className="react-modal-component__title">{title}</h3>
-                        <span className="react-modal-component__btn" onClick={() => displayModal(false)}>
-                            x
-                        </span>
+                        <span
+                            className="react-modal-component__close-btn"
+                            onClick={props.hideModal}
+                            style={btnModalStyle}
+                            aria-label="Close modal"
+                            role="button"
+                            tabIndex="0"
+                        ></span>
+                        {props.title &&
+                            <h2 className="react-modal-component__title" id="modal-title">{props.title}</h2>
+                        }
                     </div>
-                    {children}
+                    <div className="react-modal-component__content" id="modal-description">
+                        {props.children}
+                    </div>
                 </div>
             </div>
         </div>

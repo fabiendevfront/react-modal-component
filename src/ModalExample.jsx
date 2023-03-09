@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const ModalExample = () => {
 	const [displayModal, setDisplayModal] = useState(false);
+	const toggleModal = () => setDisplayModal(!displayModal);
 
 	return (
 		<div className="modal-example">
@@ -12,20 +13,25 @@ const ModalExample = () => {
 				<span
 					type="button"
 					className="modal-example__btn"
-					onClick={() => setDisplayModal(!displayModal)}
+					onClick={toggleModal}
 				>
 					Open Modale
 				</span>
 			</div>
 			{displayModal &&
-				<div className="modal-example__modale">
 					<ReactModalComponent
-						displayModal={setDisplayModal}
+						hideModal={toggleModal}
 						title="Modal Title"
+						// darkMode
+						// modalTextColor="#FFF258"
+						// closeBtnContainerColor="#93AD18"
+						// modalSize="large"
+						// customModalWidth="400px"
+						// customModalHeight="400px"
 					>
-						<p className="react-modal-component__text">Texte de la modale</p>
+						<p className="modal-example__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio expedita facilis laborum, doloremque voluptatum nostrum esse fuga a quia rerum deleniti veritatis rem quisquam corporis saepe iure eaque ex maxime?</p>
+						<a href="/" className="modal-example__link-btn">Link</a>
 					</ReactModalComponent>
-				</div>
 			}
 		</div>
 	);

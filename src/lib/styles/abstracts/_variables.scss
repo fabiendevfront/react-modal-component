@@ -11,28 +11,5 @@ $font-default: 'Source Sans Pro', sans-serif;
 /* COLORS */
 /**********/
 
-$primary-color: #93AD18;
-$secondary-color: #5A6F07;
 $white: #ffffff;
 $black: #000000;
-$error: #ff0033;
-
-
-/********/
-/* SIZE */
-/********/
-
-$wrapper-xl: 30px 5% 30px 5%;
-$wrapper-l: 30px 2% 30px 2%;
-$wrapper-layout: 20px 5% 20px 5%;
-
-/***************/
-/* RESPONSIVE */
-/**************/
-
-// 1.Breakpoints map for responsive
-$breakpoints: (
-    large: 1440px,
-    medium: 1024px,
-    small: 768px
-);
