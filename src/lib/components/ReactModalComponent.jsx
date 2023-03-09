@@ -1,19 +1,38 @@
 import { useEffect } from "react";
 import "../styles/main.scss";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
+/**
+ * A React component for displaying a modal.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {function} props.hideModal - Function to hide modal
+ * @param {string} [props.title] - Title of modal
+ * @param {node} props.children - Content to display inside modal
+ * @param {bool} [props.darkMode] - Whether to display modal in dark mode
+ * @param {string} [props.modalSize] - Predefined size of modal ("large", "medium", "small")
+ * @param {string} [props.customModalWidth] - Custom width for modal
+ * @param {string} [props.customModalHeight] - Custom height for modal
+ * @param {string} [props.modalTextColor] - Text color for modal
+ * @param {string} [props.closeBtnContainerColor] - Background color for close button
+ * @returns {JSX.Element}
+ */
 const ReactModalComponent = (props) => {
 
+    // Modal custom style
     const modalStyle = {
         width: props.customModalWidth || "",
         height: props.customModalHeight || "",
         color: props.modalTextColor || ""
-    }
+    };
 
+    // Close btn custom style
     const btnModalStyle = {
         backgroundColor: props.closeBtnContainerColor || ""
-    }
+    };
 
+    // Event Listener for close modal with escape key
     useEffect(() => {
         const handleKeyDown = (event) => {
             if (event.key === "Escape") {
@@ -28,6 +47,26 @@ const ReactModalComponent = (props) => {
         };
     }, [props]);
 
+
+    /**
+    * Returns a string with the class name for the modal size based on the modalSize prop.
+    @param {Object} props - Props object
+    @param {string} props.modalSize - Size of modal ("large", "medium", "small")
+    @returns {string} - If valid return className for the modal size
+    */
+    const getModalSizeClass = (props) => {
+        const validSizes = ["large", "medium", "small"];
+
+        if (!validSizes.includes(props.modalSize)) {
+            console.error(`Invalid value modalSize: '${props.modalSize}'`);
+            return "";
+        }
+
+        return `react-modal-component__container--${props.modalSize}`;
+    };
+
+    const modalSizeClass = props.modalSize ? getModalSizeClass(props) : "";
+
     return (
         <div
             className="react-modal-component"
@@ -38,10 +77,10 @@ const ReactModalComponent = (props) => {
             <div className="react-modal-component__overlay" onClick={props.hideModal}>
                 <div
                     className={`react-modal-component__container ${
-                        props.modalSize === "large" ? "react-modal-component__container--large"
-                        : props.modalSize === "medium" ? "react-modal-component__container--medium"
-                        : props.modalSize === "small" ? "react-modal-component__container--small"
-                        : ""} ${props.darkMode ? "react-modal-component__container--dark" : ""}`}
+                        modalSizeClass
+                    } ${
+                        props.darkMode ? "react-modal-component__container--dark" : ""
+                    }`}
                     style={modalStyle}
                     onClick={(e) => e.stopPropagation()}
                 >
