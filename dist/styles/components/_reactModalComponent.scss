@@ -1,0 +1,116 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+/********************************/
+/* REACT-MODAL-COMPONENT STYLE */
+/*******************************/
+
+.react-modal-component {
+
+    &__overlay {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        background: rgba(variables.$black, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__container {
+        position: relative;
+        padding: 48px 52px;
+        background-color: variables.$white;
+        color: variables.$black;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        margin: 0 5%;
+        max-width: 500px;
+
+        &--dark {
+            background-color: lighten(variables.$black, 13);
+            color: variables.$white;
+
+            .react-modal-component__close-btn {
+                background-color: variables.$white;
+
+                &:hover {
+                    background-color: darken(variables.$white, 33)
+                }
+
+                &::before,
+                &::after {
+                    background-color: variables.$black;
+                }
+            }
+        }
+
+        &--large {
+            width: 600px;
+            min-width: 500px;
+        }
+
+        &--medium {
+            width: 400px;
+            min-width: 300px;
+        }
+
+        &--small {
+            width: 300px;
+            min-width: 200px;
+        }
+    }
+
+    &__close-btn {
+        position: absolute;
+        top: 5px;
+        right: 0;
+        margin: 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: variables.$black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color .3s ease-in-out;
+
+        &:hover {
+            background-color: lighten(variables.$black, 50);
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background-color: variables.$white;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    &__title {
+        @include mixins.font-size(38px);
+        margin: 15px 0 0 0;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}

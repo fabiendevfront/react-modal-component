@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# React Modal Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Presentation
 
-## Available Scripts
+Customizable modal component for React JS
 
-In the project directory, you can run:
+## Install the modal
 
-### `npm start`
+Use NPM command:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm i @fabiendev/react-modal-component
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Import modal in your project
 
-### `npm test`
+```js
+import  ReactModalComponent  from "@fabiendev/react-modal-component";
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Example in component
 
-### `npm run build`
+```js
+import { useState } from "react";
+import ReactModalComponent  from "@fabiendev/react-modal-component";
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const ModalExample = () => {
+    const [displayModal, setDisplayModal] = useState(false);
+    const toggleModal = () => setDisplayModal(!displayModal);
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    return (
+        <div>
+            <h2>Modal Example</h2>
+            <button onClick={toggleModal}>Open Modale</button>
+            {displayModal &&
+                <ReactModalComponent
+                    hideModal={toggleModal}
+                    title="Modal Title"
+                    darkMode
+                    modalSize="large"
+                >
+                    <p>Message in modal</p>
+                </ReactModalComponent>
+            }
+        </div>
+    );
+};
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+export default ModalExample;
+```
 
-### `npm run eject`
+## Properties
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Properties              | Types    | Required |
+| ----------              | ---------| -------- |
+| `hideModal`             | function |    X     |
+| `title`                 | string   |          |
+| `children`              | node     |    X     |
+| `darkMode`              | bool     |          |
+| `modalSize`             | string   |          |
+| `customModalWidth`      | string   |          |
+| `customModalHeight`     | string   |          |
+| `modalTextColor`        | string   |          |
+| `closeBtnContainerColor`| string   |          |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Properties description
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* `hideModal` {function}: Function to hide modal
+    * example:
+        ```js
+            hideModal={toggleModal}
+        ```
+* `title` {string}: Title of modal
+    * example:
+        ```js
+            title="Modal Title"
+        ```
+* `children` {node}: Content to display inside modal
+    * example:
+        ```js
+            <ReactModalComponent>
+                <p>Message in modal</p>
+            </ReactModalComponent>
+        ```
+* `darkMode` {bool}: Whether to display modal in dark mode
+    * example:
+        ```js
+            darkMode={true}
+        ```
+* `modalSize` {string}: Predefined size of modal ("large", "medium", "small")
+    * example:
+        ```js
+            modalSize="large"
+        ```
+* `customModalWidth` {string}: Custom width for modal
+    * example:
+        ```js
+            customModalWidth="500px"
+        ```
+* `customModalHeight` {string}: Custom height for modal
+    * example:
+        ```js
+            customModalHeight="500px"
+        ```
+* `modalTextColor` {string}: Text color for modal
+    * example:
+        ```js
+            modalTextColor="#93AD18"
+        ```
+* `closeBtnContainerColor` {string}: Background color for close button
+    * example:
+        ```js
+            closeBtnContainerColor="#748813"
+        ```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## NPM Package
+- [@fabiendev/react-modal-component](https://www.npmjs.com/)
