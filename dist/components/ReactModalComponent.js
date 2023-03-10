@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = require("react");
-require("../styles/main.scss");
+require("../styles/main.css");
 /**
  * A React component for displaying a modal.
  *
