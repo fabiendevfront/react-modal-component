@@ -27,7 +27,7 @@ const ModalExample = () => {
 					<ReactModalComponent
 					    hideModal={toggleModal}
 					    title="Modal Title"
-					    // darkMode
+					    darkMode
 					    modalSize="large"
 					    // customModalWidth="400px"
 					    // customModalHeight="400px"

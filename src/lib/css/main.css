@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap");
+/**********/
+/* FONTS */
+/*********/
+/***********/
+/* COLORS */
+/**********/
+/**********/
+/* FONTS */
+/*********/
+/************/
+/* GENERAL */
+/***********/
+* {
+  box-sizing: border-box;
+}
+
+/*****************/
+/* FILES EXPORT */
+/****************/
+/********************************/
+/* REACT-MODAL-COMPONENT STYLE */
+/*******************************/
+.react-modal-component__overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.react-modal-component__container {
+  position: relative;
+  padding: 48px 52px;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  margin: 0 5%;
+  max-width: 500px;
+}
+.react-modal-component__container--dark {
+  background-color: #212121;
+  color: #ffffff;
+}
+.react-modal-component__container--dark .react-modal-component__close-btn {
+  background-color: #ffffff;
+}
+.react-modal-component__container--dark .react-modal-component__close-btn:hover {
+  background-color: #ababab;
+}
+.react-modal-component__container--dark .react-modal-component__close-btn::before, .react-modal-component__container--dark .react-modal-component__close-btn::after {
+  background-color: #000000;
+}
+.react-modal-component__container--large {
+  width: 600px;
+  min-width: 500px;
+}
+.react-modal-component__container--medium {
+  width: 400px;
+  min-width: 300px;
+}
+.react-modal-component__container--small {
+  width: 300px;
+  min-width: 200px;
+}
+.react-modal-component__close-btn {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  margin: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.react-modal-component__close-btn:hover {
+  background-color: gray;
+}
+.react-modal-component__close-btn::before, .react-modal-component__close-btn::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background-color: #ffffff;
+}
+.react-modal-component__close-btn::before {
+  transform: rotate(45deg);
+}
+.react-modal-component__close-btn::after {
+  transform: rotate(-45deg);
+}
+.react-modal-component__title {
+  font-size: 38px;
+  font-size: 2.375rem;
+  margin: 15px 0 0 0;
+}
+.react-modal-component__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/*****************/
+/* FILES EXPORT */
+/****************/
+/*******************/
+/* FOLDERS IMPORT */
+/******************/
+
+/*# sourceMappingURL=main.css.map */

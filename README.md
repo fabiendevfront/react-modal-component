@@ -115,4 +115,4 @@ export default ModalExample;
         ```
 
 ## NPM Package
-- [@fabiendev/react-modal-component](https://www.npmjs.com/)
+- [@fabiendev/react-modal-component](https://www.npmjs.com/package/@fabiendev/react-modal-component)
