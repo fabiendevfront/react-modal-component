@@ -1,5 +1,6 @@
+import React from "react";
 import { useEffect } from "react";
-import "../css/main.css";
+import "./main.css";
 import PropTypes from "prop-types";
 
 /**
