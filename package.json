@@ -1,7 +1,7 @@
 {
   "name": "@fabiendev/react-modal-component",
   "description": "Modal component for React JS",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
