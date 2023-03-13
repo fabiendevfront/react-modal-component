@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import "./main.css";
+import "./reactModalComponent.css";
 import PropTypes from "prop-types";
 
 /**

@@ -5,7 +5,7 @@ module.exports = function (api) {
     const plugins = [ "macros" ];
 
     return {
-      presets,
-      plugins
+        presets,
+        plugins
     };
-}
+};
